@@ -5,5 +5,6 @@
     <filter root="/content/dam/wknd-app/asset.jpg" mode="merge"/>
     <filter root="/content/experience-fragments/wknd-app" mode="merge"/>
 
+    <filter root="/content/wknd-app/au/en/web" mode="merge"/>
     <filter root="/etc/map" mode="merge"/>
 </workspaceFilter>

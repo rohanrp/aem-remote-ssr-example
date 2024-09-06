@@ -3,6 +3,7 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:deviceGroups="[mobile/groups/responsive]"
+        cq:template="/conf/wknd-app/settings/wcm/templates/remote-page"
         jcr:primaryType="cq:PageContent"
         sling:resourceType="wknd-app/components/remotepagenext">
         <root

@@ -2,10 +2,9 @@
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Template">
     <jcr:content
-        cq:created="{Date}2018-10-22T17:08:28.689+05:30"
-        cq:createdBy="admin"
-        jcr:primaryType="cq:PageContent"
+        cq:templateType="/conf/wknd-app/settings/wcm/template-types/remote-page"
         jcr:description="Remote Page Template"
-        jcr:title="Remote SPA Page"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Remote Page"
         status="enabled"/>
 </jcr:root>

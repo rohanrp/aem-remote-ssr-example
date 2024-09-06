@@ -1,7 +1,9 @@
 import '@/app/ui/global.css';
 import { inter } from '@/app/ui/fonts';
 import { Metadata } from 'next';
- 
+import { headers } from 'next/headers';
+import { AemRenderer } from './ui/aem/aem-renderer';
+
 export const metadata: Metadata = {
   title: {
     template: '%s | Acme Dashboard | @lllariogonzalez',
@@ -30,9 +32,28 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+
+  const headersList = headers();
+	const path = headersList.get('urlPathHeader') || '';
+
+
+  const isAemPreview = !!headersList.get('aemModelHeader');
+	const pagePath: string = headersList.get('aemModelHeader') || '';
+	
+
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <head>
+				<meta content="disabled" property="cq:pagemodel_router" />
+				{isAemPreview ? <base href={process.env.FRONT_END_HOST} /> : null}
+			</head>
+      <body>
+        <AemRenderer host={process.env.NEXT_PUBLIC_AEM_HOST || ''} isAemPreview={isAemPreview} pagePath={pagePath || path}
+						pathPrefix={process.env.NEXT_PUBLIC_AEM_PATH_PREFX || ''}
+						project={process.env.NEXT_PUBLIC_PROJECT || ''}
+					/>
+        {children
+      }</body>
     </html>
   );
 }
